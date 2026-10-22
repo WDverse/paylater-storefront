@@ -16,7 +16,7 @@ export const products: Product[] = [
     id: 'game-controllers',
     name: 'Game Controllers',
     price: 49.5,
-    image: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    image: 'https://images.unsplash.com/photo-1632312527375-bd5d5a0d3484?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
   },
   {
     id: 'smart-watch',
