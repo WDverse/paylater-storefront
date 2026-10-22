@@ -2,6 +2,8 @@
 
 A demo storefront (React + TypeScript + Vite) used to test the `paylater.js` embed script in a real single-page app. It shows how a third-party `<paylater-message>` web component behaves inside React: client-side routing, re-renders, StrictMode, and prices that change after the page loads.
 
+**Live site:** https://paylater-storefront.vercel.app
+
 ## Getting started
 
 ```sh
@@ -52,7 +54,14 @@ What the script does:
 
 ### Updating the script
 
-Replace `public/paylater.js` with the new build and commit it. Nothing else needs to change unless the element's attributes or the `window.Paylater` API change.
+Replace `public/paylater.js` with the new build and commit it. Nothing else needs to change unless the element's attributes or the `window.Paylater` API change. Pushing to `main` redeploys the live site with the new script.
+
+## Deployment
+
+The site is hosted on [Vercel](https://vercel.com) at https://paylater-storefront.vercel.app. Every push to `main` triggers a new build (`npm run build`, output `dist/`) and deploy.
+
+- **`vercel.json`** rewrites every route to `index.html`, so opening or refreshing a URL like `/product/:id` loads the app instead of returning a 404. Real files such as `/paylater.js` are still served directly.
+- **The site must be served from a domain root.** The script loads from `/paylater.js`, so hosting under a sub-path (for example, GitHub Pages at `/paylater-storefront/`) would break the Paylater messages.
 
 ## Project layout
 
@@ -64,4 +73,5 @@ src/pages/                ProductList, ProductDetail, Cart
 src/context/CartContext   In-memory cart state
 src/data/products.ts      Hard-coded product catalog
 src/paylater/             Script loader and JSX types
+vercel.json               SPA rewrite for Vercel
 ```
